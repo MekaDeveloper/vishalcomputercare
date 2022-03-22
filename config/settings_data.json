@@ -11,10 +11,10 @@
     "gradient_background_1": "",
     "colors_background_2": "#f3f3f3",
     "gradient_background_2": "",
-    "type_header_font": "assistant_n4",
-    "heading_scale": 100,
-    "type_body_font": "assistant_n4",
-    "body_scale": 100,
+    "type_header_font": "rockwell_n7",
+    "heading_scale": 110,
+    "type_body_font": "nunito_sans_n6",
+    "body_scale": 105,
     "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
@@ -175,7 +175,8 @@
       "main-password-header": {
         "type": "main-password-header",
         "settings": {
-          "logo_max_width": 100,
+          "logo": "shopify:\/\/shop_images\/logo-new.png",
+          "logo_max_width": 250,
           "color_scheme": "background-1"
         }
       },
