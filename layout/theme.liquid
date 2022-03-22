@@ -28,8 +28,20 @@
     {% endif %}
 
     {% render 'meta-tags' %}
-
+	<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+    
     {{ content_for_header }}
 
     {%- liquid
@@ -188,6 +200,14 @@
         }
       }
     {% endstyle %}
+    
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
