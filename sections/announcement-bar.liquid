@@ -1,6 +1,9 @@
+<slider-component>
+  <div class="grid">
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
+    <div class="grid__item">
       <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
         {%- if block.settings.text != blank -%}
           {%- if block.settings.link != blank -%}
@@ -17,9 +20,11 @@
           {%- endif -%}
         {%- endif -%}
       </div>
+    </div>
   {%- endcase -%}
 {%- endfor -%}
-
+  </div>
+</slider-component>
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
