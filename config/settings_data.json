@@ -161,8 +161,8 @@
         "settings": {
           "show_gutter": false,
           "height": 30,
-          "columns_desktop": 3,
-          "swipe_on_desktop": true,
+          "columns_desktop": 2,
+          "swipe_on_desktop": false,
           "swipe_on_mobile": false,
           "auto_rotate": true,
           "change_slides_speed": 3
