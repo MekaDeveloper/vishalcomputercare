@@ -16,7 +16,7 @@ endif
 -%}
 
 <slider-component>
-  <div id="Slider-{{ section.id }}" class="grid{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}">
+  <div id="Slider-{{ section.id }}" class="grid{% unless section.settings.show_gutter %} grid--gapless{% endunless %}{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}">
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
