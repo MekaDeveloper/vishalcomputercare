@@ -106,7 +106,7 @@
             "settings": {
               "text": "Welcome to our store",
               "color_scheme": "background-2",
-              "link": ""
+              "link": "shopify:\/\/collections"
             }
           },
           "d852bb06-3fb2-475e-9c6e-c9b197463cc8": {
@@ -160,7 +160,7 @@
         ],
         "settings": {
           "show_gutter": false,
-          "spacing": 10,
+          "height": 30,
           "columns_desktop": 2,
           "swipe_on_desktop": false,
           "swipe_on_mobile": false
