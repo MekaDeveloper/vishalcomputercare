@@ -31,6 +31,44 @@
 {
   "name": "t:sections.announcement-bar.name",
   "max_blocks": 12,
+  "settings": [
+	{	
+	  "type": "header",
+	  "content": "Layout"	
+	},
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Inner Spacing",
+      "default": 10
+    },
+	{
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2,
+      "label": "Number of columns on desktop",
+	  "info": "Single column with show on mobile."
+    },
+	{
+      "type": "checkbox",
+      "id": "swipe_on_desktop",
+      "default": false,
+      "label": "Enable swipe on desktop"
+    },
+	{
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": false,
+      "label": "Enable swipe on mobile"
+    }
+  ],
   "blocks": [
     {
       "type": "announcement",
@@ -81,6 +119,9 @@
   "default": {
     "blocks": [
       {
+        "type": "announcement"
+      },
+	  {
         "type": "announcement"
       }
     ]
