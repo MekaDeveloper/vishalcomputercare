@@ -528,7 +528,7 @@ class SliderComponent extends HTMLElement {
   
 
       this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
-      if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
+      //if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
 
       this.initPages();
       const resizeObserver = new ResizeObserver(entries => this.initPages());
