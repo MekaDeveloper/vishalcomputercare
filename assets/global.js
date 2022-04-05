@@ -658,21 +658,13 @@ class SliderComponent extends HTMLElement {
     }
   
     onButtonClick(event) {
-       // super.onButtonClick(event);
-        const isFirstSlide = this.currentPage === 1;
-        const isLastSlide = this.currentPage === this.sliderItemsToShow.length;
-    
-        if (!isFirstSlide && !isLastSlide) return;
-    
-        if (isFirstSlide && event.currentTarget.name === 'previous') {
-          this.slideScrollPosition = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * this.sliderItemsToShow.length;
-        } else if (isLastSlide && event.currentTarget.name === 'next') {
-          this.slideScrollPosition = 0;
-        }
-        this.slider.scrollTo({
-          left: this.slideScrollPosition
-        });
-      }
+    event.preventDefault();
+    const step = event.currentTarget.dataset.step || 1;
+    this.slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (step * this.sliderItemOffset) : this.slider.scrollLeft - (step * this.sliderItemOffset);
+    this.slider.scrollTo({
+      left: this.slideScrollPosition
+    });
+  }
   }
 
 customElements.define('slider-component', SliderComponent);
