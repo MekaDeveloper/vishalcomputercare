@@ -163,7 +163,9 @@
           "height": 30,
           "columns_desktop": 2,
           "swipe_on_desktop": true,
-          "swipe_on_mobile": false
+          "swipe_on_mobile": false,
+          "auto_rotate": true,
+          "change_slides_speed": 5
         }
       },
       "header": {
