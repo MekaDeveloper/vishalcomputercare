@@ -19,7 +19,7 @@ endif
     min-height: {{ section.settings.height | append: 'px'}};
   }
 </style>
-<slider-component class="slider-mobile-gutter" role="region" aria-roledescription="{{ 'sections.slideshow.carousel' | t }}" aria-label="{{ section.settings.accessibility_info | escape }}">
+<slideshow-component class="slider-mobile-gutter" role="region" aria-roledescription="{{ 'sections.slideshow.carousel' | t }}" aria-label="{{ section.settings.accessibility_info | escape }}">
   <div id="Slider-{{ section.id }}" class="grid{% unless section.settings.show_gutter %} grid--gapless{% endunless %}{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}"
     aria-live="polite"
     aria-atomic="true"
@@ -61,7 +61,7 @@ endif
     <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">{% render 'icon-caret' %}</button>    
   </div>
   {%- endif -%}
-</slider-component>
+</slideshow-component>
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
