@@ -528,7 +528,7 @@ class SliderComponent extends HTMLElement {
   
 
       this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
-      //if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
+      if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
 
       this.initPages();
       const resizeObserver = new ResizeObserver(entries => this.initPages());
@@ -655,6 +655,20 @@ class SliderComponent extends HTMLElement {
     isSlideVisible(element, offset = 0) {
       const lastVisibleSlide = this.slider.clientWidth + this.slider.scrollLeft - offset;
       return (element.offsetLeft + element.clientWidth) <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
+      
+      this.sliderItemsToShow.forEach((item, index) => {
+      const button = item.querySelector('a');
+      if (index === this.currentPage - 1) {
+        if (button) button.removeAttribute('tabindex');
+        item.setAttribute('aria-hidden', 'false');
+        item.removeAttribute('tabindex');
+      } else {
+        if (button) button.setAttribute('tabindex', '-1');
+        item.setAttribute('aria-hidden', 'true');
+        item.setAttribute('tabindex', '-1');
+      }
+    });
+      
     }
   
     onButtonClick(event) {
@@ -663,7 +677,7 @@ class SliderComponent extends HTMLElement {
       
      const isFirstSlide = this.currentPage === 1;
      const isLastSlide = this.currentPage === this.sliderItemsToShow.length;  
-      console.log(isFirstSlide);
+      console.log(isLastSlide);
       
     this.slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (step * this.sliderItemOffset) : this.slider.scrollLeft - (step * this.sliderItemOffset);
     this.slider.scrollTo({
