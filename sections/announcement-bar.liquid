@@ -8,10 +8,15 @@ endif
 if section.settings.swipe_on_desktop and section.block.size > 2
     assign show_desktop_slider = true
 endif
+if section.settings.columns_desktop > section.block.size 
+	assign desktop = section.settings.columns_desktop
+else
+	assign desktop = section.block.size
+endif    
 -%}
 
 <slider-component>
-  <div id="Slider-{{ section.id }}" class="grid{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}">
+  <div id="Slider-{{ section.id }}" class="grid{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}">
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
