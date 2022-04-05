@@ -532,8 +532,7 @@ class SliderComponent extends HTMLElement {
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
     
-    
-    if (this.slider.getAttribute('data-autoplay') === 'true') this.setAutoPlay();
+     if (this.slider.getAttribute('data-autoplay') === 'true') this.setAutoPlay();
     
   }
 
@@ -545,7 +544,7 @@ class SliderComponent extends HTMLElement {
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
     this.update();
   }
-
+  
   setAutoPlay() {
     this.sliderAutoplayButton = this.querySelector('.slideshow__autoplay');
     this.autoplaySpeed = this.slider.dataset.speed * 1000;
@@ -560,13 +559,7 @@ class SliderComponent extends HTMLElement {
     this.autoplayButtonIsSetToPlay = true;
   }
   
-  autoRotateSlides() {
-    const slideScrollPosition = this.currentPage === this.sliderItems.length ? 0 : this.slider.scrollLeft + this.slider.querySelector('.slideshow__slide').clientWidth;
-    this.slider.scrollTo({
-      left: slideScrollPosition
-    });
-  }
-  
+
   resetPages() {
     this.sliderItems = this.querySelectorAll('[id^="Slide-"]');
     this.initPages();
@@ -601,6 +594,55 @@ class SliderComponent extends HTMLElement {
     } else {
       this.nextButton.removeAttribute('disabled');
     }
+  }
+  
+  autoPlayToggle() {
+    this.togglePlayButtonState(this.autoplayButtonIsSetToPlay);
+    this.autoplayButtonIsSetToPlay ? this.pause() : this.play();
+    this.autoplayButtonIsSetToPlay = !this.autoplayButtonIsSetToPlay;
+  }
+
+  focusOutHandling(event) {
+    const focusedOnAutoplayButton = event.target === this.sliderAutoplayButton || this.sliderAutoplayButton.contains(event.target);
+    if (!this.autoplayButtonIsSetToPlay || focusedOnAutoplayButton) return;
+    this.play();
+  }
+
+  focusInHandling(event) {
+    const focusedOnAutoplayButton = event.target === this.sliderAutoplayButton || this.sliderAutoplayButton.contains(event.target);
+    if (focusedOnAutoplayButton && this.autoplayButtonIsSetToPlay) {
+      this.play();
+    } else if (this.autoplayButtonIsSetToPlay) {
+      this.pause();
+    }
+  }
+
+  play() {
+    this.slider.setAttribute('aria-live', 'off');
+    clearInterval(this.autoplay);
+    this.autoplay = setInterval(this.autoRotateSlides.bind(this), this.autoplaySpeed);
+  }
+
+  pause() {
+    this.slider.setAttribute('aria-live', 'polite');
+    clearInterval(this.autoplay);
+  }
+
+  togglePlayButtonState(pauseAutoplay) {
+    if (pauseAutoplay) {
+      this.sliderAutoplayButton.classList.add('slideshow__autoplay--paused');
+      this.sliderAutoplayButton.setAttribute('aria-label', window.accessibilityStrings.playSlideshow);
+    } else {
+      this.sliderAutoplayButton.classList.remove('slideshow__autoplay--paused');
+      this.sliderAutoplayButton.setAttribute('aria-label', window.accessibilityStrings.pauseSlideshow);
+    }
+  }
+
+  autoRotateSlides() {
+    const slideScrollPosition = this.currentPage === this.sliderItems.length ? 0 : this.slider.scrollLeft + this.slider.querySelector('.slideshow__slide').clientWidth;
+    this.slider.scrollTo({
+      left: slideScrollPosition
+    });
   }
 
   isSlideVisible(element, offset = 0) {
