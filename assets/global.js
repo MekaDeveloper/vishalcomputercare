@@ -658,7 +658,7 @@ class SliderComponent extends HTMLElement {
     }
   
     onButtonClick(event) {
-        super.onButtonClick(event);
+       // super.onButtonClick(event);
         const isFirstSlide = this.currentPage === 1;
         const isLastSlide = this.currentPage === this.sliderItemsToShow.length;
     
