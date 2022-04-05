@@ -511,7 +511,7 @@ class DeferredMedia extends HTMLElement {
 
 customElements.define('deferred-media', DeferredMedia);
 
-class SliderComponent extends SliderComponent {
+class SliderComponent extends HTMLElement {
   constructor() {
     super();
     this.sliderControlWrapper = this.querySelector('.slider-buttons');
