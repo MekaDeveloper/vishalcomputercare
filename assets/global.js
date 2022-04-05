@@ -639,7 +639,7 @@ class SliderComponent extends HTMLElement {
   }
 
   autoRotateSlides() {
-    const slideScrollPosition = this.currentPage === this.sliderItems.length ? 0 : this.slider.scrollLeft + this.slider.querySelector('.slideshow__slide').clientWidth;
+    const slideScrollPosition = this.currentPage === this.sliderItems.length ? 0 : this.slider.scrollLeft + this.slider.querySelector('.slider__slide').clientWidth;
     this.slider.scrollTo({
       left: slideScrollPosition
     });
