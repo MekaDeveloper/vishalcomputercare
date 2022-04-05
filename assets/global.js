@@ -658,6 +658,15 @@ class SliderComponent extends HTMLElement {
       left: this.slideScrollPosition
     });
   }
+  
+  linkToSlide(event) {
+    event.preventDefault();
+    const slideScrollPosition = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+    this.slider.scrollTo({
+      left: slideScrollPosition
+    });
+  }
+  
 }
 
 customElements.define('slider-component', SliderComponent);
