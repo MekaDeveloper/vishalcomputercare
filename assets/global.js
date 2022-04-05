@@ -595,7 +595,7 @@ class SliderComponent extends HTMLElement {
 
 customElements.define('slider-component', SliderComponent);
 
-class SlideshowComponent extends HTMLElement {
+class SlideshowComponent extends SliderComponent {
   constructor() {
     super();
     this.sliderControlWrapper = this.querySelector('.slider-buttons');
