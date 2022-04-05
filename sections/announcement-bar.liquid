@@ -8,7 +8,7 @@ endif
 if section.settings.swipe_on_desktop and section.block.size > 2
     assign show_desktop_slider = true
 endif
-if section.settings.columns_desktop > section.block.size 
+if section.settings.columns_desktop < section.block.size 
 	assign desktop = section.settings.columns_desktop
 else
 	assign desktop = section.block.size
