@@ -20,7 +20,11 @@ endif
   }
 </style>
 <slider-component class="slider-mobile-gutter" role="region" aria-roledescription="{{ 'sections.slideshow.carousel' | t }}" aria-label="{{ section.settings.accessibility_info | escape }}">
-  <div id="Slider-{{ section.id }}" class="grid{% unless section.settings.show_gutter %} grid--gapless{% endunless %}{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}">
+  <div id="Slider-{{ section.id }}" class="grid{% unless section.settings.show_gutter %} grid--gapless{% endunless %}{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}"
+    aria-live="polite"
+    aria-atomic="true"
+    data-autoplay="{{ section.settings.auto_rotate }}"
+    data-speed="{{ section.settings.change_slides_speed }}">
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
@@ -93,6 +97,10 @@ endif
       "label": "Number of columns on desktop",
 	  "info": "Single column with show on mobile."
     },
+	{	
+	  "type": "header",
+	  "content": "Slider"	
+	},
 	{
       "type": "checkbox",
       "id": "swipe_on_desktop",
@@ -104,6 +112,22 @@ endif
       "id": "swipe_on_mobile",
       "default": false,
       "label": "Enable swipe on mobile"
+    },
+	{
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.slideshow.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 2,
+      "unit": "s",
+      "label": "t:sections.slideshow.settings.change_slides_speed.label",
+      "default": 5
     }
   ],
   "blocks": [
