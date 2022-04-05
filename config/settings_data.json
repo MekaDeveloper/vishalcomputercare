@@ -162,7 +162,7 @@
           "show_gutter": false,
           "height": 30,
           "columns_desktop": 2,
-          "swipe_on_desktop": false,
+          "swipe_on_desktop": true,
           "swipe_on_mobile": false
         }
       },
