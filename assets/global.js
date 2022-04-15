@@ -649,7 +649,8 @@ class SliderComponent extends HTMLElement {
   
   linkToSlide(event) {
     event.preventDefault();
-	const slideScrollPosition = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+	const slideScrollPosition = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);        
+    
     this.slider.scrollTo({
       left: slideScrollPosition
     });
