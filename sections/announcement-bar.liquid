@@ -1,6 +1,34 @@
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- liquid 
+if section.settings.swipe_on_mobile and section.blocks.size > 2
+    assign show_mobile_slider = true
+endif
+if section.settings.swipe_on_desktop and section.blocks.size > 2
+    assign show_desktop_slider = true
+endif
+if section.settings.columns_desktop < section.blocks.size
+	assign desktop = section.settings.columns_desktop
+else
+	assign desktop = section.blocks.size
+endif    
+-%}
+<style>
+  .announcement-bar{
+    min-height: {{ section.settings.height | append: 'px'}};
+  }
+</style>
+<slideshow-component class="slider-mobile-gutter" role="region" aria-roledescription="{{ 'sections.slideshow.carousel' | t }}" aria-label="{{ section.settings.accessibility_info | escape }}">
+  <div id="Slider-{{ section.id }}" class="grid{% unless section.settings.show_gutter %} grid--gapless{% endunless %}{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ desktop }}-col-desktop{% endif %}{%if show_desktop_slider %} slider slider--everywhere grid--peek{% endif %}{% if show_mobile_slider and show_desktop_slider == false %} slider slider--tablet grid--peek{% endif %}"
+    aria-live="polite"
+    aria-atomic="true"
+    data-autoplay="{{ section.settings.auto_rotate }}"
+    data-speed="{{ section.settings.change_slides_speed }}">
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
+    <div id="Slide-{{ section.id }}-{{ forloop.index }}" class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}">
       <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
         {%- if block.settings.text != blank -%}
           {%- if block.settings.link != blank -%}
@@ -17,13 +45,108 @@
           {%- endif -%}
         {%- endif -%}
       </div>
+    </div>
   {%- endcase -%}
 {%- endfor -%}
-
+  </div>
+  {%- if show_mobile_slider or show_desktop_slider -%}
+  <div class="slideshow__controls slider-buttons no-js-hidden">
+    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+    <div class="slider-counter caption">
+      <span class="slider-counter--current">1</span>
+      <span aria-hidden="true"> / </span>
+      <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+      <span class="slider-counter--total">{{ products_to_display }}</span>
+    </div>
+    <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">{% render 'icon-caret' %}</button>    
+    {%- if section.settings.auto_rotate -%}
+        <button type="button" class="slideshow__autoplay slider-button no-js-hidden{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}" aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}">
+          {%- render 'icon-pause' -%}
+          {%- render 'icon-play' -%}
+        </button>
+      {%- endif -%}
+  </div>
+  <noscript>
+      <div class="slider-buttons">
+        <div class="slider-counter">
+          {%- for block in section.blocks -%}
+            <a href="#Slide-{{ section.id }}-{{ forloop.index }}" class="slider-counter__link link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}">
+              {{ forloop.index }}
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </noscript>
+  {%- endif -%}
+</slideshow-component>
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
   "max_blocks": 12,
+  "settings": [
+	{	
+	  "type": "header",
+	  "content": "Layout"	
+	},
+	{
+      "type": "checkbox",
+      "id": "show_gutter",
+      "default": true,
+      "label": "Show Spacing between columns"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Min Height",
+      "default": 30
+    },
+	{
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2,
+      "label": "Number of columns on desktop",
+	  "info": "Single column with show on mobile, Not apply on Slider."
+    },
+	{	
+	  "type": "header",
+	  "content": "Slider"	
+	},
+	{
+      "type": "checkbox",
+      "id": "swipe_on_desktop",
+      "default": false,
+      "label": "Enable swipe on desktop"
+    },
+	{
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": false,
+      "label": "Enable swipe on mobile"
+    },
+	{
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.slideshow.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 2,
+      "unit": "s",
+      "label": "t:sections.slideshow.settings.change_slides_speed.label",
+      "default": 5
+    }
+  ],
   "blocks": [
     {
       "type": "announcement",
@@ -74,6 +197,9 @@
   "default": {
     "blocks": [
       {
+        "type": "announcement"
+      },
+	  {
         "type": "announcement"
       }
     ]
