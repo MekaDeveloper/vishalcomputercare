@@ -530,6 +530,7 @@ class SliderComponent extends HTMLElement {
     this.prevButton = this.querySelector('button[name="previous"]');
     this.nextButton = this.querySelector('button[name="next"]');
     
+    this.sliderControlWrapper = this.querySelector('.slider-buttons');    
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
     this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
 
