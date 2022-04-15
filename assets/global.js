@@ -576,7 +576,7 @@ class SliderComponent extends HTMLElement {
         currentElement: this.sliderItemsToShow[this.currentPage - 1]
       }}));
     }
-this.enableSliderLooping = true;
+	this.enableSliderLooping = true;
     if (this.enableSliderLooping) return;
 
     if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0) {
