@@ -538,6 +538,7 @@ class SliderComponent extends HTMLElement {
     
     for(let i of this.sliderControlLinksArray) {          
         console.log(i);
+      i++
     }
 
         
