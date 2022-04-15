@@ -572,7 +572,7 @@ class SliderComponent extends HTMLElement {
 
     if (this.currentPage != previousPage) {
       this.dispatchEvent(new CustomEvent('slideChanged', { detail: {
-        currentPage: this.currentPage,
+        currentPage: this.slidesPerPag,
         currentElement: this.sliderItemsToShow[this.currentPage - 1]
       }}));
     }
