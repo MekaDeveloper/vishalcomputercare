@@ -564,8 +564,7 @@ class SliderComponent extends HTMLElement {
 
   update() {
     const previousPage = this.currentPage;
-    //this.currentPage = Math.round(this.slider.scrollLeft / this.sliderItemOffset) + 1;
-    this.currentPage = Math.ceil(this.totalPages / this.slidesPerPage) + 1;
+    this.currentPage = Math.round(this.slider.scrollLeft / this.sliderItemOffset) + 1;    
     console.log('Current:',this.currentPage);
     /*if (this.currentPageElement && this.pageTotalElement) {
       this.currentPageElement.textContent = this.currentPage;
