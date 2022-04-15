@@ -539,11 +539,13 @@ class SliderComponent extends HTMLElement {
     this.slider.addEventListener('scroll', this.update.bind(this));
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
+    
+    console.log(this.sliderItems.length);
+    
   }
 
   initPages() {
-    this.sliderItemsToShow = Array.from(this.sliderItems).filter(element => element.clientWidth > 0);
-    console.log(this.sliderItemsToShow.length);
+    this.sliderItemsToShow = Array.from(this.sliderItems).filter(element => element.clientWidth > 0);    
     if (this.sliderItemsToShow.length < 2) return;
     this.sliderItemOffset = this.sliderItemsToShow[1].offsetLeft - this.sliderItemsToShow[0].offsetLeft;
     this.slidesPerPage = Math.floor((this.slider.clientWidth - this.sliderItemsToShow[0].offsetLeft) / this.sliderItemOffset);
