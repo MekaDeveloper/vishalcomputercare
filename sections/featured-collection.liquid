@@ -22,7 +22,8 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-	.section-{{ section.id }}-padding .slider-counter__link--numbers:nth-child({{ section.settings.columns_desktop }}n + 2){
+	.section-{{ section.id }}-padding .slider-counter__link--numbers:nth-child({{ section.settings.columns_desktop }}n + 2),
+	.section-{{ section.id }}-padding .slider-counter__link--numbers:nth-child({{ section.settings.columns_desktop }}n + 3){
 	display:none;
 	}
   }
