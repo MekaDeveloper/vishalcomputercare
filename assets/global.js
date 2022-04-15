@@ -577,8 +577,10 @@ class SliderComponent extends HTMLElement {
       }}));
     }
 
-    //if (this.enableSliderLooping) return;
-
+    if (this.enableSliderLooping){
+       return;
+    }
+      else{
     if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0) {
       this.prevButton.setAttribute('disabled', 'disabled');
     } else {
@@ -589,6 +591,7 @@ class SliderComponent extends HTMLElement {
       this.nextButton.setAttribute('disabled', 'disabled');
     } else {
       this.nextButton.removeAttribute('disabled');
+    }
     }
   }
 
