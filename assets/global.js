@@ -567,7 +567,7 @@ class SliderComponent extends HTMLElement {
 
     if (this.currentPageElement && this.pageTotalElement) {
       this.currentPageElement.textContent = this.currentPage;
-      this.pageTotalElement.textContent = this.slidesPerPage;
+      this.pageTotalElement.textContent = this.totalPages;
     }
 
     if (this.currentPage != previousPage) {
@@ -597,7 +597,6 @@ class SliderComponent extends HTMLElement {
     const lastVisibleSlide = this.slider.clientWidth + this.slider.scrollLeft - offset;
     return (element.offsetLeft + element.clientWidth) <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
   }
-  
 /*
   onButtonClick(event) {
       event.preventDefault();
