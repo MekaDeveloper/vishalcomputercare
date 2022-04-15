@@ -606,7 +606,7 @@ class SliderComponent extends HTMLElement {
     console.log('Page:',this.totalPages);
     console.log('Current:',this.currentPage);
     const isFirstSlide = this.currentPage === 1;
-    const isLastSlide = this.currentPage === this.slidesPerPage;    
+    const isLastSlide = this.currentPage === this.totalPages;
     console.log('First:', isFirstSlide);
     console.log('Last:', isLastSlide);
 /*
