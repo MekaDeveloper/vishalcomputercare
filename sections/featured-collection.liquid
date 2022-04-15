@@ -103,14 +103,10 @@
           <span class="slider-counter--total">{{ section.blocks.size }}</span>
         {%- else-%}
           <div class="slideshow__control-wrapper">
-           {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-            {%- assign item = section.settings.columns_desktop | plus: 1 -%}
-            {% assign remainder = forloop.index | modulo: item %}
-            {%- if remainder == 0 -%}
+           {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}            
               <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
               </button>
-            {%- endif -%}
             {%- endfor -%}
           </div>
         {%- endif -%}
