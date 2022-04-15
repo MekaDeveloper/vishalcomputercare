@@ -529,6 +529,9 @@ class SliderComponent extends HTMLElement {
     this.pageTotalElement = this.querySelector('.slider-counter--total');
     this.prevButton = this.querySelector('button[name="previous"]');
     this.nextButton = this.querySelector('button[name="next"]');
+    
+    this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
+    this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
 
     if (!this.slider || !this.nextButton) return;
 
@@ -637,6 +640,15 @@ class SliderComponent extends HTMLElement {
       left: this.slideScrollPosition
     });
   }
+  
+  linkToSlide(event) {
+    event.preventDefault();
+    const slideScrollPosition = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+    this.slider.scrollTo({
+      left: slideScrollPosition
+    });
+  }
+  
 }
 
 customElements.define('slider-component', SliderComponent);
