@@ -534,7 +534,11 @@ class SliderComponent extends HTMLElement {
     this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
     this.sliderControlWrapper = this.querySelector('.slider-buttons');    
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
-    this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)), this.linkToSlide++);
+    this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
+    
+    for(let i of this.sliderControlLinksArray) {          
+        console.log(i);
+    }
 
         
     if (!this.slider || !this.nextButton) return;
