@@ -606,18 +606,16 @@ class SliderComponent extends HTMLElement {
     
     const isFirstSlide = this.currentPage === 1;
     const isLastSlide = this.currentPage === this.sliderItemsToShow.length - 1;
-    console.log('First:', isFirstSlide);
-    console.log('Last:', isLastSlide);
+    //console.log('First:', isFirstSlide);
+    //console.log('Last:', isLastSlide);
 /*
     if (!isFirstSlide && !isLastSlide) return;
-
+*/
     if (isFirstSlide && event.currentTarget.name === 'previous') {
       this.slideScrollPosition = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * this.sliderItemsToShow.length;
     } else if (isLastSlide && event.currentTarget.name === 'next') {
       this.slideScrollPosition = 0;
-    }
-    
-    */
+    }      
     
     this.slider.scrollTo({
       left: this.slideScrollPosition
