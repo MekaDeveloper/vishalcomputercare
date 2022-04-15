@@ -577,6 +577,7 @@ class SliderComponent extends HTMLElement {
       }}));
     }
 
+    this.enableSliderLooping = true;
     if (this.enableSliderLooping) return;
 
     if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0) {
