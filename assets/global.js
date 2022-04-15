@@ -604,9 +604,9 @@ class SliderComponent extends HTMLElement {
     this.slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (step * this.sliderItemOffset) : this.slider.scrollLeft - (step * this.sliderItemOffset);
             
     
-    const isFirstSlide = this.currentPage === 0;
+    const isFirstSlide = this.currentPage === 1;
     const isLastSlide = this.currentPage === this.sliderItemsToShow.length - 1;
-    console.log('First:', isLastSlide);
+    console.log('First:', isFirstSlide);
     console.log('Last:', isLastSlide);
 /*
     if (!isFirstSlide && !isLastSlide) return;
