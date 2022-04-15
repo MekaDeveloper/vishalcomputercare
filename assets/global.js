@@ -559,7 +559,7 @@ class SliderComponent extends HTMLElement {
 
   resetPages() {
     this.sliderItems = this.querySelectorAll('[id^="Slide-"]');
-   // this.initPages();
+    this.initPages();
   }
 
   update() {
