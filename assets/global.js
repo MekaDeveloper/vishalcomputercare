@@ -530,6 +530,8 @@ class SliderComponent extends HTMLElement {
     this.prevButton = this.querySelector('button[name="previous"]');
     this.nextButton = this.querySelector('button[name="next"]');
     
+    
+     this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
     this.sliderControlWrapper = this.querySelector('.slider-buttons');    
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
     this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
@@ -644,7 +646,7 @@ class SliderComponent extends HTMLElement {
   
   linkToSlide(event) {
     event.preventDefault();
-    const slideScrollPosition = this.slider.scrollLeft + this.slider.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+	const slideScrollPosition = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
       left: slideScrollPosition
     });
