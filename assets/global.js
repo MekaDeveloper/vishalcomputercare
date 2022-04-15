@@ -566,6 +566,7 @@ class SliderComponent extends HTMLElement {
     
     for(let i of array) {
      console.log(i);
+      i = i + 2;
     }
     
   }
