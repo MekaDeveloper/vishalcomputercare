@@ -27,7 +27,7 @@
   {%- endif -%}
 {%- endstyle -%}
 
-<div id="Banner-{{ section.id }}" class="email-signup-banner banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt-image' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}" style="height:100%">
+<div id="Banner-{{ section.id }}" class="email-signup-banner banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt-image' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
   {%- if section.settings.show_background_image -%}
     <div class="banner__media{% if section.settings.image != blank %} media{% endif %}">
       {%- if section.settings.image != blank -%}
@@ -55,7 +55,7 @@
     </div>
   {%- endif -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
-    <div class="email-signup-banner__box banner__box newsletter newsletter__wrapper isolate{% if section.settings.show_background_image == false %} email-signup-banner__box--no-image{% endif %} content-container color-{{ section.settings.color_scheme }} content-container--full-width-mobile">
+    <div class="email-signup-banner__box banner__box newsletter newsletter__wrapper isolate{% if section.settings.show_background_image == false %} email-signup-banner__box--no-image{% endif %} content-container color-{{ section.settings.color_scheme }} gradient content-container--full-width-mobile">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
@@ -104,40 +104,6 @@
                 {%- endif -%}
               {% endform %}
             </div>
-      	  {%- when 'count_down' -%}
-      		<div {{ block.shopify_attributes }}>
-              <div id="count_down" style="font-size: calc(var(--font-heading-scale) * 4rem); font-weight: bold; color: #fff;"></div>
-              <script>
-                // Set the date we're counting down to
-                var countDownDate = new Date("May 1, 2022 0:0:0").getTime();
-
-                // Update the count down every 1 second
-                var x = setInterval(function() {
-
-                  // Get today's date and time
-                  var now = new Date().getTime();
-
-                  // Find the distance between now and the count down date
-                  var distance = countDownDate - now;
-
-                  // Time calculations for days, hours, minutes and seconds
-                  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                  // Display the result in the element with id="demo"
-                  document.getElementById("count_down").innerHTML = days + "d " + hours + "h "
-                  + minutes + "m " + seconds + "s ";
-
-                  // If the count down is finished, write some text
-                  if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("count_down").innerHTML = "EXPIRED";
-                  }
-                }, 1000);
-              </script>
-      		</div>
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -276,27 +242,27 @@
       "options": [
         {
           "value": "accent-1",
-          "label": "t:sections.email-signup-banner.settings.color_scheme.options__1.label"
+          "label": "t:sections.all.colors.accent_1.label"
         },
         {
           "value": "accent-2",
-          "label": "t:sections.email-signup-banner.settings.color_scheme.options__2.label"
+          "label": "t:sections.all.colors.accent_2.label"
         },
         {
           "value": "background-1",
-          "label": "t:sections.email-signup-banner.settings.color_scheme.options__3.label"
+          "label": "t:sections.all.colors.background_1.label"
         },
         {
           "value": "background-2",
-          "label": "t:sections.email-signup-banner.settings.color_scheme.options__4.label"
+          "label": "t:sections.all.colors.background_2.label"
         },
         {
           "value": "inverse",
-          "label": "t:sections.email-signup-banner.settings.color_scheme.options__5.label"
+          "label": "t:sections.all.colors.inverse.label"
         }
       ],
       "default": "background-1",
-      "label": "t:sections.email-signup-banner.settings.color_scheme.label",
+      "label": "t:sections.all.colors.label",
       "info": "t:sections.email-signup-banner.settings.color_scheme.info"
     },
     {
@@ -397,12 +363,7 @@
       "type": "email_form",
       "name": "t:sections.email-signup-banner.blocks.email_form.name",
       "limit": 1
-    },
-	{
-	  "type": "count_down",
-	  "name": "Count down",
-	  "limit": 1
-	}
+    }
   ],
   "presets": [
     {
