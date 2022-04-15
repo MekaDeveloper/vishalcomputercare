@@ -576,7 +576,7 @@ class SliderComponent extends HTMLElement {
         currentElement: this.sliderItemsToShow[this.currentPage - 1]
       }}));
     }
-	this.enableSliderLooping = true;
+
     if (this.enableSliderLooping) return;
 
     if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0) {
@@ -590,9 +590,6 @@ class SliderComponent extends HTMLElement {
     } else {
       this.nextButton.removeAttribute('disabled');
     }
-    
-    
-    
   }
 
   isSlideVisible(element, offset = 0) {
@@ -605,12 +602,11 @@ class SliderComponent extends HTMLElement {
     const step = event.currentTarget.dataset.step || 1;
     this.slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (step * this.sliderItemOffset) : this.slider.scrollLeft - (step * this.sliderItemOffset);
     
-    console.log(step);
-    /*
-    const isFirstSlide = event.currentTarget.dataset.step === 1;
-    const isLastSlide = event.currentTarget.dataset.step === this.sliderItemsToShow.length;
-
+    console.log(this.currentPage);
     
+    const isFirstSlide = this.currentPage === 1;
+    const isLastSlide = this.currentPage === this.sliderItemsToShow.length;
+
     if (!isFirstSlide && !isLastSlide) return;
 
     if (isFirstSlide && event.currentTarget.name === 'previous') {
@@ -618,7 +614,7 @@ class SliderComponent extends HTMLElement {
     } else if (isLastSlide && event.currentTarget.name === 'next') {
       this.slideScrollPosition = 0;
     }
-    */
+    
     
     this.slider.scrollTo({
       left: this.slideScrollPosition
