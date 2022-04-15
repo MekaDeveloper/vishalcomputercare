@@ -603,10 +603,10 @@ class SliderComponent extends HTMLElement {
     const step = event.currentTarget.dataset.step || 1;
     this.slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (step * this.sliderItemOffset) : this.slider.scrollLeft - (step * this.sliderItemOffset);
             
-    console.log(this.sliderItemsToShow.length);
+    console.log(step);
     console.log('Current:',this.currentPage);
     const isFirstSlide = this.currentPage === 1;
-    const isLastSlide = this.currentPage === this.sliderItemsToShow[this.sliderItemsToShow.length - 1];    
+    //const isLastSlide = this.currentPage === ;    
     console.log('First:', isFirstSlide);
     console.log('Last:', isLastSlide);
 /*
