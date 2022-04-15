@@ -567,7 +567,7 @@ class SliderComponent extends HTMLElement {
 
     if (this.currentPageElement && this.pageTotalElement) {
       this.currentPageElement.textContent = this.currentPage;
-      this.pageTotalElement.textContent = this.totalPages;
+      this.pageTotalElement.textContent = this.slidesPerPage;
     }
 
     if (this.currentPage != previousPage) {
