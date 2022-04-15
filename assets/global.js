@@ -563,7 +563,7 @@ class SliderComponent extends HTMLElement {
     console.log("Length:", this.sliderItemsToShow.length);
     console.log("Page:", this.slidesPerPage);
     
-    for(let i of this.sliderControlLinksArray) {
+    for(let i of this.sliderControlWrapper.length) {
       let index = i;
       console.log(index);
       index = index + this.slidesPerPage;
