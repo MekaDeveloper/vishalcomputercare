@@ -552,7 +552,7 @@ class SliderComponent extends HTMLElement {
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
     this.update();
     
-    console.log(this.totalPages);
+  //  console.log(this.totalPages);
     
   }
 
@@ -603,6 +603,7 @@ class SliderComponent extends HTMLElement {
     this.slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (step * this.sliderItemOffset) : this.slider.scrollLeft - (step * this.sliderItemOffset);
     
     console.log(this.currentPage);
+    console.log(step);
     /*
     const isFirstSlide = this.currentPage === 1;
     const isLastSlide = this.currentPage === this.sliderItemsToShow.length;
