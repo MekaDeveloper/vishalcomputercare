@@ -611,7 +611,7 @@ class SlideshowComponent extends SliderComponent {
 
     if (!this.sliderControlWrapper) return;
 
-    this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
+    this.sliderFirstItemNode = this.slider.querySelector('.slideshow__slide');
     if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
 
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
@@ -711,7 +711,7 @@ class SlideshowComponent extends SliderComponent {
   }
 
   autoRotateSlides() {
-    const slideScrollPosition = this.currentPage === this.sliderItems.length ? 0 : this.slider.scrollLeft + this.slider.querySelector('.slider__slide').clientWidth;
+    const slideScrollPosition = this.currentPage === this.sliderItems.length ? 0 : this.slider.scrollLeft + this.slider.querySelector('.slideshow__slide').clientWidth;
     this.slider.scrollTo({
       left: slideScrollPosition
     });
