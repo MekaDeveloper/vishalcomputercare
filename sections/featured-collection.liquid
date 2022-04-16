@@ -103,7 +103,8 @@
           <span class="slider-counter--total">{{ section.blocks.size }}</span>
         {%- else-%}
           <div class="slideshow__control-wrapper">
-            {%- assign no = 1 -%}
+            {%- assign nod = 1 -%}
+            {%- assign nom = 1 -%}
            {%- for product in section.settings.collection.products limit: section.settings.products_to_show  -%}                        
             {%- assign r_desktop = forloop.index | modulo: section.settings.columns_desktop -%}            
             {%- assign r_mobile = forloop.index | modulo: section.settings.columns_mobile -%}            
@@ -112,8 +113,12 @@
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- endif -%}
                 {% if r_desktop == 1 -%}
-                {%- if section.settings.slider_visual == 'numbers' -%}{{ no }}{% else %}<span class="dot"></span>{%- endif -%}
-                {%- assign no = no | plus: 1 -%}                
+                {%- if section.settings.slider_visual == 'numbers' -%}{{ nod }}{% else %}<span class="dot"></span>{%- endif -%}
+                {%- assign nod = nod | plus: 1 -%}                
+                {%- endif -%}
+                {% if r_mobile == 1 -%}
+                {%- if section.settings.slider_visual == 'numbers' -%}{{ nom }}{% else %}<span class="dot"></span>{%- endif -%}
+                {%- assign nom = nom | plus: 1 -%}                
                 {%- endif -%}
               </button>                        
             {%- endfor -%}
