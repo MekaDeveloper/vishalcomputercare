@@ -112,6 +112,8 @@
                 {% if r_desktop == 1 -%}
                 <span class="small-hide medium-hide{% if r_desktop != 1 %} hidden{% endif %}">{%- if section.settings.slider_visual == 'numbers' -%}{{ nod }}{% else %}<span class="dot"></span>{%- endif -%}</span>
                 {%- assign nod = nod | plus: 1 -%}                
+                {%- else -%}
+                <span class="1">{%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}</span>
                 {%- endif -%}
                 {% if r_mobile == 1 -%}
                 <span class="large-up-hide{% if r_mobile != 1 %} hidden{% endif %}">{%- if section.settings.slider_visual == 'numbers' -%}{{ nom }}{% else %}<span class="dot"></span>{%- endif -%}</span>                
