@@ -104,7 +104,7 @@
         {%- else-%}
           <div class="slideshow__control-wrapper">
            {%- for product in section.settings.collection.products limit: section.settings.products_to_show  -%}                        
-            {%- assign r_desktop = forloop.index | modulo: section.settings.columns_desktop -%}            
+            {%- if section.settings.columns_desktop > 1 -%}{%- assign r_desktop = forloop.index | modulo: section.settings.columns_desktop -%} {%- endif -%}
             {%- assign r_mobile = forloop.index | modulo: section.settings.columns_mobile -%}            
               <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link{% if r_desktop != 1 %} large-up-hide{% endif %}{% if r_mobile != 1 %} small-hide medium-hide{% endif %}" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
