@@ -608,8 +608,7 @@ class SliderComponent extends HTMLElement {
     } else {
       this.nextButton.removeAttribute('disabled');
     }
-    
-    
+        
     if (!this.sliderControlButtons.length) return;
 
     this.sliderControlButtons.forEach(link => {
