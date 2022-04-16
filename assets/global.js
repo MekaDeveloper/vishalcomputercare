@@ -612,6 +612,22 @@ class SliderComponent extends HTMLElement {
     return (element.offsetLeft + element.clientWidth) <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
   }
   
+  setSlideVisibility() {
+    this.sliderItemsToShow.forEach((item, index) => {
+      const button = item.querySelector('a');
+      if (index === this.currentPage - 1) {
+        if (button) button.removeAttribute('tabindex');
+        item.setAttribute('aria-hidden', 'false');
+        item.removeAttribute('tabindex');
+      } else {
+        if (button) button.setAttribute('tabindex', '-1');
+        item.setAttribute('aria-hidden', 'true');
+        item.setAttribute('tabindex', '-1');
+      }
+    });
+  }
+  
+  
 /*
   onButtonClick(event) {
       event.preventDefault();
