@@ -118,6 +118,7 @@
                 {%- endif -%}
                 {% if r_mobile == 1 -%}
                 <span class="large-up-hide{% if r_mobile != 1 %} hidden{% endif %}">{%- if section.settings.slider_visual == 'numbers' -%}{{ nom }}{% else %}<span class="dot"></span>{%- endif -%}</span>
+                {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- assign nom = nom | plus: 1 -%}                
                 {%- endif -%}
               </button>                        
