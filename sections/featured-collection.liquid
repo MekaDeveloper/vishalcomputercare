@@ -108,9 +108,11 @@
             {%- assign r_desktop = forloop.index | modulo: section.settings.columns_desktop -%}            
             {%- assign r_mobile = forloop.index | modulo: section.settings.columns_mobile -%}            
               <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link{% if r_desktop != 1 and section.settings.columns_desktop > 1 %} large-up-hide{% endif %}{% if r_mobile != 1 and section.settings.columns_mobile > '1' %} small-hide medium-hide{% endif %}" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
+                {%- if r_desktop != 1 and r_mobile != 1 -%}
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
+                {%- endif -%}
                 {% if r_desktop == 1 -%}
-                <br>{{ no }}
+                {%- if section.settings.slider_visual == 'numbers' -%}{{ no }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- assign no = no | plus: 1 -%}                
                 {%- endif -%}
               </button>                        
