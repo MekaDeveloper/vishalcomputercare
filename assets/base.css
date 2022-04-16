@@ -546,7 +546,13 @@ table:not([class]) th {
     display: none !important;
   }
 }
-
+    
+@media screen and (min-width: 750px) {
+  .medium-up-hide {
+    display: none !important;
+  }
+}
+  
 @media screen and (min-width: 990px) {
   .large-up-hide {
     display: none !important;
