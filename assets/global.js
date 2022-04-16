@@ -543,11 +543,7 @@ class SliderComponent extends HTMLElement {
     const resizeObserver = new ResizeObserver(entries => this.initPages());
     resizeObserver.observe(this.slider);
 
-    this.slider.addEventListener('scroll', this.update.bind(this));
-    
-    this.slider.addEventListener('scroll', this.setSlideVisibility.bind(this));
-    this.setSlideVisibility();
-    
+    this.slider.addEventListener('scroll', this.update.bind(this));        
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
     
@@ -633,23 +629,7 @@ class SliderComponent extends HTMLElement {
   isSlideVisible(element, offset = 0) {
     const lastVisibleSlide = this.slider.clientWidth + this.slider.scrollLeft - offset;
     return (element.offsetLeft + element.clientWidth) <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
-  }
-  /*
-  
-  setSlideVisibility() {
-    this.sliderItemsToShow.forEach((item, index) => {
-      const button = item.querySelector('a');
-      if (index === this.currentPage - 1) {
-        if (button) button.removeAttribute('tabindex');
-        item.setAttribute('aria-hidden', 'false');
-        item.removeAttribute('tabindex');
-      } else {
-        if (button) button.setAttribute('tabindex', '-1');
-        item.setAttribute('aria-hidden', 'true');
-        item.setAttribute('tabindex', '-1');
-      }
-    });
-  }*/
+  }  
   
   
 /*
