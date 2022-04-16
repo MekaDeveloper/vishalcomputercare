@@ -113,7 +113,7 @@
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- endif -%}
                 {% if r_desktop == 1 -%}
-                {%- if section.settings.slider_visual == 'numbers' -%}{{ nod }}{% else %}<span class="dot"></span>{%- endif -%}
+                <span class="{% if section.settings.columns_desktop == '1' %}hidden{% endif %}">{%- if section.settings.slider_visual == 'numbers' -%}{{ nod }}{% else %}<span class="dot"></span>{%- endif -%}</span>
                 {%- assign nod = nod | plus: 1 -%}                
                 {%- endif -%}
                 {% if r_mobile == 1 -%}
