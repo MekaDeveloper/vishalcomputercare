@@ -116,7 +116,7 @@
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ nod }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- assign nod = nod | plus: 1 -%}                
                 {%- endif -%}
-                {% if r_mobile == 1 and section.settings.columns_mobile == '1' -%}
+                {% if r_mobile == 1 and section.settings.columns_mobile > '1' -%}
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ nom }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- assign nom = nom | plus: 1 -%}                
                 {%- endif -%}
