@@ -110,6 +110,7 @@
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- assign number = 1 -%}
                 <br><span>{{ number }}</span>
+                {%- assign number = number | plus: 1 -%}
               </button>            
             {%- endfor -%}
           </div>
