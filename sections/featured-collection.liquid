@@ -109,7 +109,7 @@
               <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link{% if r_desktop != 1 and section.settings.columns_desktop > 1 %} large-up-hide{% endif %}{% if r_mobile != 1 and section.settings.columns_mobile > '1' %} small-hide medium-hide{% endif %}" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}
                 {%- assign number = 1 -%}
-                {%- if r_desktop != 1 and section.settings.columns_desktop > 1 -%}{{ number }}{%- endif -%}
+                {%- if r_desktop != 1 and section.settings.columns_desktop > 1 -%}<span>{{ number }}</span>{%- endif -%}
               </button>            
             {%- endfor -%}
           </div>
