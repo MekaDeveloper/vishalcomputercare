@@ -103,7 +103,7 @@
           <span class="slider-counter--total">{{ section.blocks.size }}</span>
         {%- else-%}
           <div class="slideshow__control-wrapper">
-            {%- assign no = 0 -%}
+            {%- assign no = 1 -%}
            {%- for product in section.settings.collection.products limit: section.settings.products_to_show  -%}                        
             {%- assign r_desktop = forloop.index | modulo: section.settings.columns_desktop -%}            
             {%- assign r_mobile = forloop.index | modulo: section.settings.columns_mobile -%}            
