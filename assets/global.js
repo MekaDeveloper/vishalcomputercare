@@ -531,8 +531,6 @@ class SliderComponent extends HTMLElement {
     this.nextButton = this.querySelector('button[name="next"]');
     
     
-    this.sliderControlButtons = this.querySelectorAll('.slider-counter__link');
-    
     this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
     this.sliderControlWrapper = this.querySelector('.slider-buttons');    
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
@@ -575,7 +573,7 @@ class SliderComponent extends HTMLElement {
 
   update() {
     const previousPage = this.currentPage;
-    this.currentPage = Math.round(this.slider.scrollLeft / this.sliderItemOffset) + 1;         
+    this.currentPage = Math.round(this.slider.scrollLeft / this.sliderItemOffset) + 1;    
    // console.log('Current:',this.currentPage);
     /*if (this.currentPageElement && this.pageTotalElement) {
       this.currentPageElement.textContent = this.currentPage;
@@ -608,16 +606,6 @@ class SliderComponent extends HTMLElement {
     } else {
       this.nextButton.removeAttribute('disabled');
     }
-        
-    if (!this.sliderControlButtons.length) return;
-
-    this.sliderControlButtons.forEach(link => {
-      link.classList.remove('slider-counter__link--active');
-      link.removeAttribute('aria-current');
-    });
-    this.sliderControlButtons[this.currentPage - 1].classList.add('slider-counter__link--active');
-    this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
-    
   }
 
   isSlideVisible(element, offset = 0) {
