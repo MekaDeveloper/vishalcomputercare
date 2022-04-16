@@ -634,6 +634,7 @@ class SliderComponent extends HTMLElement {
     const lastVisibleSlide = this.slider.clientWidth + this.slider.scrollLeft - offset;
     return (element.offsetLeft + element.clientWidth) <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
   }
+  /*
   
   setSlideVisibility() {
     this.sliderItemsToShow.forEach((item, index) => {
@@ -648,7 +649,7 @@ class SliderComponent extends HTMLElement {
         item.setAttribute('tabindex', '-1');
       }
     });
-  }
+  }*/
   
   
 /*
