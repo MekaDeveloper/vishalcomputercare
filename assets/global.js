@@ -984,6 +984,7 @@ customElements.define('variant-radios', VariantRadios);
 
 //===========================
 
+if (Shopify.designMode) {
 document.addEventListener('shopify:block:select', function(event) {
   const blockSelectedIsSlide = event.target.classList.contains('slider__slide');
   if (!blockSelectedIsSlide) return;
@@ -1004,3 +1005,4 @@ document.addEventListener('shopify:block:deselect', function(event) {
   const parentSlideshowComponent = event.target.closest('slideshow-component');
   if (parentSlideshowComponent.autoplayButtonIsSetToPlay) parentSlideshowComponent.play();
 });
+}
