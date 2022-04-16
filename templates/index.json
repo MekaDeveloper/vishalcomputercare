@@ -85,7 +85,7 @@
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
-            "link": "",
+            "link": "#",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -111,19 +111,55 @@
             "color_scheme": "background-1",
             "text_alignment_mobile": "center"
           }
+        },
+        "6162e958-4451-474d-9dc3-8832bcbe038d": {
+          "type": "slide",
+          "settings": {
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "0f94bb8f-2a64-4177-a079-68fdb89a06a6": {
+          "type": "slide",
+          "settings": {
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
         "1650050862c65fd8c3-0",
-        "1650050862c65fd8c3-1"
+        "1650050862c65fd8c3-1",
+        "6162e958-4451-474d-9dc3-8832bcbe038d",
+        "0f94bb8f-2a64-4177-a079-68fdb89a06a6"
       ],
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
-        "show_text_below": true,
+        "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
       }
     },
@@ -150,7 +186,7 @@
         "enable_quick_add": false,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "slider_visual": "dots",
+        "slider_visual": "numbers",
         "padding_top": 28,
         "padding_bottom": 36
       }
