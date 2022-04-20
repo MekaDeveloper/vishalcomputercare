@@ -649,6 +649,10 @@ class SliderComponent extends HTMLElement {
 
     const isFirstSlide = this.currentPage === 1;
     const isLastSlide = this.currentPage === this.totalPages;
+    
+        
+    this.dots=  Math.floor(this.totalPages / this.slidesPerPage);    
+    console.log("Dots:", this.dots);
  
           
     console.log('Page:',this.totalPages);
