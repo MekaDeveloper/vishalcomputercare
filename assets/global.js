@@ -557,21 +557,23 @@ class SliderComponent extends HTMLElement {
     this.slidesPerPage = Math.floor((this.slider.clientWidth - this.sliderItemsToShow[0].offsetLeft) / this.sliderItemOffset);
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
     
+    this.dots = Math.floor((this.sliderItemsToShow[0].offsetWidth * this.sliderItemsToShow.length) / this.slider.clientWidth ));
+    
     this.update();    
     
-    
+    /*
     console.log("Inner:", Math.floor((this.sliderItemsToShow[0].offsetWidth * this.sliderItemsToShow.length) / this.slider.clientWidth ));
     console.log("Width:", this.slider.clientWidth);
     console.log("FirstItem:", this.sliderItemsToShow[0].offsetWidth);
     console.log("PerPage:", this.slidesPerPage);
     console.log("Total:", this.totalPages);
-    console.log("Length:", this.sliderItemsToShow.length);
+    console.log("Length:", this.sliderItemsToShow.length);*/
     
-    let text = "";
-    for (let i = 0; i < 3; i++) {
+    let dots = "";
+    for (let i = 0; i < this.dots; i++) {
   		text += i + "<br>";
 	}
-    console.log(text);
+    
     
   }
 
