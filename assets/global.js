@@ -567,7 +567,7 @@ class SliderComponent extends HTMLElement {
     console.log("Total:", this.totalPages);
     console.log("Length:", this.sliderItemsToShow.length);
     
-    const text;
+    const text = "";
     for (let i = 0; i < 3; i++) {
   		text += i + "<br>";
 	}
