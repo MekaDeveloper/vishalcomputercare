@@ -654,11 +654,11 @@ class SliderComponent extends HTMLElement {
     this.dots=  Math.floor(this.totalPages / this.slidesPerPage);    
     console.log("Dots:", this.dots);
  
-          
+          /*
     console.log('Page:',this.totalPages);
     console.log('Current:',this.currentPage);
     console.log('First:', isFirstSlide);
-    console.log('Last:', isLastSlide);
+    console.log('Last:', isLastSlide);*/
 
     if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0 && event.currentTarget.name === 'previous') {
       this.slideScrollPosition = this.slider.scrollLeft + this.slider.clientWidth * this.sliderItemsToShow.length;
