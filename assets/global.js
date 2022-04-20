@@ -606,6 +606,10 @@ class SliderComponent extends HTMLElement {
       this.sliderControlButtons.forEach(link => {        
       	link.classList.remove('slider-counter__link--active');
       	link.removeAttribute('aria-current');
+        if(link === "hidden"){
+        	console.log(link.length - 1);          
+        }
+        
       });
       //if(this.sliderControlButtons === "hidden"){
         this.sliderControlButtons[this.sliderItemsToShow.length - 1].classList.add('slider-counter__link--active');
