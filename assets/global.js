@@ -558,6 +558,8 @@ class SliderComponent extends HTMLElement {
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;          
     this.update();    
     
+    console.log('Page:',this.slidesPerPage);
+    
   }
 
   resetPages() {
