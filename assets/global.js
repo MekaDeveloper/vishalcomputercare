@@ -561,7 +561,7 @@ class SliderComponent extends HTMLElement {
     
     this.update();    
     console.log("Length:", this.slider.clientWidth);
-    console.log("Total:",this.sliderItemsToShow.length);
+    console.log("Total:",this.sliderItemsToShow[this.sliderItemsToShow.length - 1].offsetLeft);
     /*console.log("Page:", this.slidesPerPage);*/
     
     
