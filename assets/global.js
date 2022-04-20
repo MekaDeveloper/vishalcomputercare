@@ -573,7 +573,7 @@ class SliderComponent extends HTMLElement {
     for (let i = 0; i < this.dots; i++) {
   		dots += '<button class="slider-counter__link link" aria-label="'+ i +'"><span class="dot"></span></button>';
 	}
-     this.querySelector('.slideshow__control-wrapper').append(dots);
+     this.querySelector('.slideshow__control-wrapper').innerHTML = dots;
     
   }
 
