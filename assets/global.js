@@ -547,6 +547,9 @@ class SliderComponent extends HTMLElement {
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
     
+    
+   
+    
   }
 
   initPages() {
@@ -557,8 +560,8 @@ class SliderComponent extends HTMLElement {
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
     
     this.update();    
-    /*console.log("Length:", this.sliderItemsToShow.length);
-    console.log("Page:", this.slidesPerPage);*/
+    console.log("Length:", this.sliderItemsToShow.length);
+    console.log("Page:", this.slidesPerPage);
     
     
   }
