@@ -555,25 +555,8 @@ class SliderComponent extends HTMLElement {
     if (this.sliderItemsToShow.length < 2) return;
     this.sliderItemOffset = this.sliderItemsToShow[1].offsetLeft - this.sliderItemsToShow[0].offsetLeft;
     this.slidesPerPage = Math.floor((this.slider.clientWidth - this.sliderItemsToShow[0].offsetLeft) / this.sliderItemOffset);
-    this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
-    
-    this.dots = Math.floor((this.sliderItemsToShow[0].offsetWidth * this.sliderItemsToShow.length) / this.slider.clientWidth );
-    
+    this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;          
     this.update();    
-    
-    /*
-    console.log("Inner:", Math.floor((this.sliderItemsToShow[0].offsetWidth * this.sliderItemsToShow.length) / this.slider.clientWidth ));
-    console.log("Width:", this.slider.clientWidth);
-    console.log("FirstItem:", this.sliderItemsToShow[0].offsetWidth);
-    console.log("PerPage:", this.slidesPerPage);
-    console.log("Total:", this.totalPages);
-    console.log("Length:", this.sliderItemsToShow.length);*/
-    
-    let dots = "";
-    for (let i = 0; i <= this.dots; i++) {
-  		dots += '<button class="slider-counter__link slider-counter__link--dots link" aria-label="'+ i +'"><span class="dot"></span></button>';
-	}
-     this.querySelector('.slideshow__control-wrapper_1').innerHTML = dots;
     
   }
 
