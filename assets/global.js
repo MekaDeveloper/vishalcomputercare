@@ -608,8 +608,8 @@ class SliderComponent extends HTMLElement {
       	link.removeAttribute('aria-current');
       });
       if(this.sliderControlButtons.is(':visible')){
-        this.sliderControlButtons[this.sliderItemsToShow.length - 1].classList.add('slider-counter__link--active');
-        this.sliderControlButtons[this.sliderItemsToShow.length - 1].setAttribute('aria-current', true);
+        this.sliderControlButtons.classList.add('slider-counter__link--active');
+        this.sliderControlButtons.setAttribute('aria-current', true);
       }
     }
     
