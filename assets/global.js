@@ -601,6 +601,10 @@ class SliderComponent extends HTMLElement {
     this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
     
 
+    if (this.isSlideVisible(this.sliderItemsToShow[this.sliderItemsToShow.length - 1])){
+      console.log('last');
+    }
+    
     this.enableSliderLooping = true;
     if (this.enableSliderLooping) return;
 
