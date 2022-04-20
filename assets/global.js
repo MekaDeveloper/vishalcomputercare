@@ -602,7 +602,8 @@ class SliderComponent extends HTMLElement {
     
 
     if (this.isSlideVisible(this.sliderItemsToShow[this.sliderItemsToShow.length - 1])){
-      console.log('last');
+      this.sliderControlButtons[this.sliderItemsToShow.length - 1].classList.add('slider-counter__link--active');
+      this.sliderControlButtons[this.sliderItemsToShow.length - 1].setAttribute('aria-current', true);
     }
     
     this.enableSliderLooping = true;
