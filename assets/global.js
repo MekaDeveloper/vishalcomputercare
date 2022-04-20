@@ -607,7 +607,7 @@ class SliderComponent extends HTMLElement {
       	link.classList.remove('slider-counter__link--active');
       	link.removeAttribute('aria-current');
         if(link === "hidden"){
-        	console.log(link.length - 1);          
+        	console.log('true');          
         }
         
       });
