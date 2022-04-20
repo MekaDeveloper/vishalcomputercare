@@ -557,7 +557,7 @@ class SliderComponent extends HTMLElement {
     this.slidesPerPage = Math.floor((this.slider.clientWidth - this.sliderItemsToShow[0].offsetLeft) / this.sliderItemOffset);
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
     
-    this.dots = Math.floor((this.sliderItemsToShow[0].offsetWidth * this.sliderItemsToShow.length) / this.slider.clientWidth ));
+    this.dots = Math.floor((this.sliderItemsToShow[0].offsetWidth * this.sliderItemsToShow.length) / this.slider.clientWidth );
     
     this.update();    
     
