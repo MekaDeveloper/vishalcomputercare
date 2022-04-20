@@ -37,12 +37,12 @@
   margin-top: 10rem;
   margin-bottom: 15rem;
 }
-/*
+
 @media screen and (max-width: 989px) {
   .collection .slider--tablet.product-grid {
     scroll-padding-left: 1.5rem;
   }
-}*/
+}
 
 .collection__description > * {
   margin: 0;
