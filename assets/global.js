@@ -659,7 +659,7 @@ class SliderComponent extends HTMLElement {
 
     if (isFirstSlide && event.currentTarget.name === 'previous') {
       this.slideScrollPosition = this.slider.scrollLeft + this.slider.clientWidth * this.sliderItemsToShow.length;
-    } else if (isLastSlide && event.currentTarget.name === 'next') {
+    } else if (this.isSlideVisible(this.sliderItemsToShow[this.sliderItemsToShow.length - 1]) && event.currentTarget.name === 'next') {
       this.slideScrollPosition = 0;
     }      
     
