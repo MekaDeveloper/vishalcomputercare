@@ -546,15 +546,8 @@ class SliderComponent extends HTMLElement {
     this.slider.addEventListener('scroll', this.update.bind(this));        
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
-    
-    
-    var div = document.createElement('button');
-    div.id = 'container';
-    div.innerHTML = '<span>*</span>';
-    div.className = 'slider-counter__link-js';
- 
-    this.querySelector('.slideshow__control-wrapper').appendChild(div);
-    
+            
+
   }
 
   initPages() {
@@ -567,7 +560,7 @@ class SliderComponent extends HTMLElement {
     this.update();    
     
     
-    /*console.log("Page:", this.slidesPerPage);*/
+    console.log("Page:", this.slider.querySelector('.slider__slide').clientWidth);
     
     
   }
