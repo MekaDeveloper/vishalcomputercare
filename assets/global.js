@@ -548,7 +548,12 @@ class SliderComponent extends HTMLElement {
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
     
     
-    
+    var div = document.createElement('button');
+    div.id = 'container';
+    div.innerHTML = '<span>*</span>';
+    div.className = 'slider-counter__link-js';
+ 
+    this.querySelector('.slideshow__control-wrapper').appendChild('slideshow__control-wrapper');
     
   }
 
@@ -560,8 +565,8 @@ class SliderComponent extends HTMLElement {
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
     
     this.update();    
-    console.log("Length:", this.slider.clientWidth);
-    console.log("Total:", this.sliderItemsToShow[this.sliderItemsToShow.length - 1].offsetLeft / this.slidesPerPage );
+    
+    
     /*console.log("Page:", this.slidesPerPage);*/
     
     
