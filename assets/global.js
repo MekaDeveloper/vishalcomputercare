@@ -605,6 +605,8 @@ class SliderComponent extends HTMLElement {
     
     this.sliderControlButtons = this.querySelectorAll('.slider-counter__link');
     this.prevButton.removeAttribute('disabled');
+    
+    console.log(this.sliderControlButtons.length);
 
     if (!this.sliderControlButtons.length) return;
 
