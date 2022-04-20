@@ -573,7 +573,6 @@ class SliderComponent extends HTMLElement {
     for (let i = 0; i <= this.dots; i++) {
   		dots += '<button class="slider-counter__link slider-counter__link--dots link" aria-label="'+ i +'"><span class="dot"></span></button>';
 	}
-     this.querySelector('.slideshow__control-wrapper').innerHTML = dots;
     
   }
 
@@ -606,7 +605,7 @@ class SliderComponent extends HTMLElement {
     this.sliderControlButtons = this.querySelectorAll('.slider-counter__link');
     this.prevButton.removeAttribute('disabled');
     
-    console.log(this.sliderControlButtons.length);
+    
 
     if (!this.sliderControlButtons.length) return;
 
