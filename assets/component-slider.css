@@ -152,16 +152,16 @@ slider-component.slider-component-full-width {
   }
 
   .slider-component-full-width .slider--desktop {
-    scroll-padding-left: 1.5rem;
+    scroll-padding-left: 0;
   }
 
   .slider-component-full-width .slider--desktop .slider__slide:first-child {
-    margin-left: 1.5rem;
-    scroll-margin-left: 1.5rem;
+    margin-left: 10;
+    scroll-margin-left: 0;
   }
 
   .slider-component-full-width .slider--desktop .slider__slide:last-child {
-    margin-right: 1.5rem;
+    margin-right: 0;
   }
 /*
   .slider--desktop.grid--5-col-desktop .grid__item {
