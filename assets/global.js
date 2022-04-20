@@ -571,9 +571,9 @@ class SliderComponent extends HTMLElement {
     
     let dots = "";
     for (let i = 0; i < this.dots; i++) {
-  		text += i + "<br>";
+  		dots += '<button class="slider-counter__link link" aria-label="'+ i +'"><span class="dot"></span></button>';
 	}
-    
+     this.querySelector('.slideshow__control-wrapper').append(dots);
     
   }
 
