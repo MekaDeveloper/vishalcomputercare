@@ -607,10 +607,10 @@ class SliderComponent extends HTMLElement {
       	link.classList.remove('slider-counter__link--active');
       	link.removeAttribute('aria-current');
       });
-      if(this.sliderControlButtons === "hidden"){
+      //if(this.sliderControlButtons === "hidden"){
         this.sliderControlButtons.classList.add('slider-counter__link--active');
         this.sliderControlButtons.setAttribute('aria-current', true);
-      }
+      //}
     }
     
     this.enableSliderLooping = true;
