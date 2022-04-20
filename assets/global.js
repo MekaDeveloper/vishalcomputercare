@@ -600,14 +600,17 @@ class SliderComponent extends HTMLElement {
     this.sliderControlButtons[this.currentPage - 1].classList.add('slider-counter__link--active');
     this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
     
-
+	
+    
     if (this.isSlideVisible(this.sliderItemsToShow[this.sliderItemsToShow.length - 1])){
-      this.sliderControlButtons.forEach(link => {
-      link.classList.remove('slider-counter__link--active');
-      link.removeAttribute('aria-current');
-    });
-      this.sliderControlButtons[this.sliderItemsToShow.length - 1].classList.add('slider-counter__link--active');
-      this.sliderControlButtons[this.sliderItemsToShow.length - 1].setAttribute('aria-current', true);
+      this.sliderControlButtons.forEach(link => {        
+      	link.classList.remove('slider-counter__link--active');
+      	link.removeAttribute('aria-current');
+      });
+      if(this.sliderControlButtons.is(':visible')){
+        this.sliderControlButtons[this.sliderItemsToShow.length - 1].classList.add('slider-counter__link--active');
+        this.sliderControlButtons[this.sliderItemsToShow.length - 1].setAttribute('aria-current', true);
+      }
     }
     
     this.enableSliderLooping = true;
