@@ -553,7 +553,7 @@ class SliderComponent extends HTMLElement {
     div.innerHTML = '<span>*</span>';
     div.className = 'slider-counter__link-js';
  
-    this.querySelector('.slideshow__control-wrapper').appendChild('slideshow__control-wrapper');
+    this.querySelector('.slideshow__control-wrapper').appendChild(div);
     
   }
 
